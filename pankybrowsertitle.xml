@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="system" method="upgrade">
+	<name>PLG_SYSTEM_PANKYBROWSERTITLE</name>
+	<author>Panayiotis Kiriakopoulos</author>
+	<creationDate>April 2023</creationDate>
+	<copyright>(C) 2023 Panayiotis Kiriakopoulos</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>kiriakopoulos_p@hotmail.com</authorEmail>
+	<authorUrl>https://github.com/pnkr</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_SYSTEM_PANKYBROWSERTITLE_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="pankybrowsertitle">pankybrowsertitle.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_system_pankybrowsertitle.ini</language>
+		<language tag="en-GB">language/en-GB/plg_system_pankybrowsertitle.sys.ini</language>
+		<language tag="el-GR">language/el-GR/plg_system_pankybrowsertitle.ini</language>
+		<language tag="el-GR">language/el-GR/plg_system_pankybrowsertitle.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="options" label="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGETEXT">    
+
+				<field name="browsermessage" type="text" label="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGETEXT" description="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGEDESC" />
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>

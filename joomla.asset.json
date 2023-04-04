@@ -1,0 +1,21 @@
+{
+	"$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+	"name": "pankybrowsertitle",
+	"version": "1.0.0",
+	"description": "Browser Tab Title Change plugin",
+	"license": "GPL-3.0-or-later",
+	"assets": [
+		{
+			"name": "pankybrowsertitle",
+			"description": "Browser title change JavaScript",
+			"type": "script",
+			"uri": "plg_system_pankybrowsertitle/functions.js",
+			"dependencies": [
+				"core"
+			],
+			"attributes": {
+				"defer": true
+			}
+		}
+	]
+}

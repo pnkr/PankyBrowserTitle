@@ -30,6 +30,9 @@ class plgSystemPankybrowsertitle extends Joomla\CMS\Plugin\CMSPlugin
 
       $document = Joomla\CMS\Factory::getApplication()->getDocument();
 
+	  $document->setMetaData('browserTabMsg', $this->params->get('browsermessage'));
+
+
       if (!($document instanceof Joomla\CMS\Document\HtmlDocument))
       {
          return;
@@ -37,55 +40,9 @@ class plgSystemPankybrowsertitle extends Joomla\CMS\Plugin\CMSPlugin
 
       	/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 		$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
-		// Load inline asset
-	  	$script = "
-		  window.onload = function() {
+		$wa->getRegistry()->addExtensionRegistryFile('plg_system_pankybrowsertitle');
 
-			var pageTitle = document.title;
-			var attentionMessage = '" . $this->params->get('browsermessage') . "';
-			var blinkEvent = null;
-			var currentDomain = window.location.hostname;
-		  
-			document.addEventListener('visibilitychange', function(e) {
-			  var isPageActive = !document.hidden;
-		  
-			  if (!isPageActive) {
-				blink();
-			  } else {
-				document.title = pageTitle;
-				clearInterval(blinkEvent);
-			  }
-			});
-		  
-			function blink() {
-			  blinkEvent = setInterval(function() {
-				if (document.title === attentionMessage) {
-				  document.title = pageTitle;
-				} else {
-				  document.title = attentionMessage;
-				}
-			  }, 100);
-			}
-		  
-			window.addEventListener('blur', function() {
-			  // Save the current domain name when the user switches to a new tab
-			  currentDomain = window.location.hostname;
-			});
-		  
-			window.addEventListener('focus', function() {
-			  // Check if the user switched to a new site when the tab regained focus
-			  if (window.location.hostname !== currentDomain) {
-				document.title = attentionMessage;
-				blink();
-			  } else {
-				document.title = pageTitle;
-				clearInterval(blinkEvent);
-			  }
-			});
-		  };
-		  
-		";
+		$wa->useScript('pankybrowsertitle','script');
 
-		$wa->addInlineScript($script, ['name' => 'pankybrowsertitle.asset']);
    }
 }

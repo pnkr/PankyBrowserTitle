@@ -1,4 +1,4 @@
-# Browser title change on leave (Joomla 4x)
+# Browser title change on leave (Joomla 5x / 6)
 
 This system plugin is an original idea from this article : https://medium.com/@alperen.talaslioglu/changing-page-title-dynamically-when-user-changes-tab-5d372554377c
 of this creative man https://medium.com/@alperen.talaslioglu

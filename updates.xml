@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+	<update>
+		<name>System - Browser title notification</name>
+		<description>Browser tab title change notification plugin for Joomla</description>
+		<element>pankybrowsertitle</element>
+		<type>plugin</type>
+		<folder>system</folder>
+		<client>site</client>
+		<version>2.0.0</version>
+		<infourl title="PankyBrowserTitle">https://github.com/pnkr/PankyBrowserTitle</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/pnkr/PankyBrowserTitle/releases/download/v2.0.0/plg_system_pankybrowsertitle_v2.0.0.zip</downloadurl>
+		</downloads>
+		<sha256>855100d19d6862432ce7abf58b504454529e04c4232387e6314f8666b270bb3c</sha256>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Panayiotis Kiriakopoulos</maintainer>
+		<maintainerurl>https://github.com/pnkr</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="(5\.[0-9]|6\.[0-9])" />
+		<php_minimum>8.1.0</php_minimum>
+	</update>
+</updates>

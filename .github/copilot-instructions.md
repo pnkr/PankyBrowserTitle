@@ -113,6 +113,21 @@ public static function getSubscribedEvents(): array
 3. **Configure:** Set custom message in plugin settings
 4. **Test:** Visit any frontend page, switch tabs, observe title animation
 
+### Creating a Release
+1. **Update version** in `pankybrowsertitle.xml`
+2. **Update CHANGELOG.md** with new version details
+3. **Update updates.xml** with new version number and download URL
+4. **Create ZIP package** containing all plugin files
+5. **Create GitHub release** with version tag (e.g., v2.0.0)
+6. **Upload ZIP** to release as attachment
+7. **Commit updates.xml** to master branch for update server
+
+### Update Server
+- **Update URL:** `https://raw.githubusercontent.com/pnkr/PankyBrowserTitle/master/updates.xml`
+- Declared in manifest: `<updateservers>` section
+- Checks GitHub releases for new versions
+- Joomla Update System pulls from this URL automatically
+
 ### File Location in Joomla Installation
 - Service provider: `plugins/system/pankybrowsertitle/services/provider.php`
 - Extension class: `plugins/system/pankybrowsertitle/src/Extension/Pankybrowsertitle.php`

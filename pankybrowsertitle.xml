@@ -25,6 +25,10 @@
 		<language tag="el-GR">language/el-GR/plg_system_pankybrowsertitle.sys.ini</language>
 	</languages>
 
+	<updateservers>
+		<server type="extension" priority="1" name="PankyBrowserTitle Updates">https://raw.githubusercontent.com/pnkr/PankyBrowserTitle/master/updates.xml</server>
+	</updateservers>
+
 	<config>
 		<fields name="params">
 			<fieldset name="options" label="PLG_SYSTEM_PANKYBROWSERTITLE_FIELDSET_LABEL">

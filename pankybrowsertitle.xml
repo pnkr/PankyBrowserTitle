@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.1" type="plugin" group="system" method="upgrade">
+<extension type="plugin" group="system" method="upgrade">
 	<name>PLG_SYSTEM_PANKYBROWSERTITLE</name>
 	<author>Panayiotis Kiriakopoulos</author>
-	<creationDate>April 2023</creationDate>
-	<copyright>(C) 2023 Panayiotis Kiriakopoulos</copyright>
+	<creationDate>November 2025</creationDate>
+	<copyright>(C) 2023-2025 Panayiotis Kiriakopoulos</copyright>
 	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
 	<authorEmail>kiriakopoulos_p@hotmail.com</authorEmail>
 	<authorUrl>https://github.com/pnkr</authorUrl>
-	<version>1.0.1</version>
+	<version>2.0.0</version>
 	<description>PLG_SYSTEM_PANKYBROWSERTITLE_XML_DESCRIPTION</description>
+	<namespace path="src">Pnkr\Plugin\System\Pankybrowsertitle</namespace>
 	<files>
-		<filename plugin="pankybrowsertitle">pankybrowsertitle.php</filename>
+		<folder plugin="pankybrowsertitle">services</folder>
+		<folder>src</folder>
 	</files>
     <media folder="media/plg_system_pankybrowsertitle" destination="plg_system_pankybrowsertitle">
         <folder>js</folder>
@@ -25,8 +27,81 @@
 
 	<config>
 		<fields name="params">
-			<fieldset name="options" label="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGETEXT">    
-				<field name="browsermessage" type="text" label="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGETEXT" description="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGEDESC" />
+			<fieldset name="options" label="PLG_SYSTEM_PANKYBROWSERTITLE_FIELDSET_LABEL">
+				<field 
+					name="message_mode" 
+					type="list" 
+					label="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGE_MODE_LABEL" 
+					description="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGE_MODE_DESC"
+					default="single"
+				>
+					<option value="single">PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGE_MODE_SINGLE</option>
+					<option value="multiple">PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGE_MODE_MULTIPLE</option>
+				</field>
+				
+				<field 
+					name="browsermessage" 
+					type="text" 
+					label="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGETEXT" 
+					description="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGEDESC"
+					showon="message_mode:single"
+				/>
+				
+				<field 
+					name="messages" 
+					type="subform" 
+					label="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGES_LABEL" 
+					description="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGES_DESC"
+					multiple="true"
+					min="1"
+					max="10"
+					showon="message_mode:multiple"
+					layout="joomla.form.field.subform.repeatable-table"
+					groupByFieldset="false"
+				>
+					<form>
+						<field 
+							name="message" 
+							type="text" 
+							label="PLG_SYSTEM_PANKYBROWSERTITLE_MESSAGE_LABEL"
+							required="true"
+							size="50"
+						/>
+					</form>
+				</field>
+				
+				<field 
+					name="enable_return_message" 
+					type="radio" 
+					label="PLG_SYSTEM_PANKYBROWSERTITLE_ENABLE_RETURN_LABEL" 
+					description="PLG_SYSTEM_PANKYBROWSERTITLE_ENABLE_RETURN_DESC"
+					default="0"
+					class="btn-group btn-group-yesno"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field 
+					name="return_message" 
+					type="text" 
+					label="PLG_SYSTEM_PANKYBROWSERTITLE_RETURN_MESSAGE_LABEL" 
+					description="PLG_SYSTEM_PANKYBROWSERTITLE_RETURN_MESSAGE_DESC"
+					default="Welcome back! 🎉"
+					showon="enable_return_message:1"
+				/>
+				
+				<field 
+					name="return_duration" 
+					type="number" 
+					label="PLG_SYSTEM_PANKYBROWSERTITLE_RETURN_DURATION_LABEL" 
+					description="PLG_SYSTEM_PANKYBROWSERTITLE_RETURN_DURATION_DESC"
+					default="2000"
+					min="500"
+					max="10000"
+					step="500"
+					showon="enable_return_message:1"
+				/>
 			</fieldset>
 		</fields>
 	</config>
